@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f3ed">
+    <meta name="description" content="Find a home that fits the way you live. Thoughtful rentals, clear details, and a calmer way to move.">
+    <title>Reome — find your kind of home</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Reome home"><span class="brand-mark">r</span><span>reome</span></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#homes">Find a home</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#about">Our approach</a>
+      </nav>
+      <div class="header-actions">
+        <button class="saved-link" id="saved-nav" type="button" aria-pressed="false"><span class="heart-small" aria-hidden="true">♡</span> Saved <span class="saved-count" id="saved-count">0</span></button>
+        <button class="button button-dark header-cta" type="button" data-open-guide>Tell us what you need <span aria-hidden="true">↗</span></button>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-photo" role="img" aria-label="Sunlit apartment living room with tall windows and warm wood details"></div>
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <p class="eyebrow light-eyebrow"><span class="eyebrow-line"></span> A better way to find home</p>
+          <h1>Room for the<br><em>life you live.</em></h1>
+          <p class="hero-intro">Thoughtful rentals, clear details, and a little less of the searching.</p>
+          <button class="button button-cream" type="button" data-open-guide>Make my home brief <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="hero-note"><span class="note-dot"></span> Real homes. Clear terms. A better move.</div>
+        <div class="hero-index">01 <span>/</span> 04</div>
+      </section>
+
+      <section class="search-wrap" aria-label="Search homes">
+        <form id="search-form" class="search-panel">
+          <label class="search-field location-field"><span class="field-icon" aria-hidden="true">⌕</span><span class="field-label">Where</span><input id="location-search" type="search" placeholder="City, neighborhood, or ZIP" autocomplete="off"></label>
+          <label class="search-field"><span class="field-icon" aria-hidden="true">⌂</span><span class="field-label">Home type</span><select id="type-search"><option value="">Any kind of home</option><option value="Apartment">Apartment</option><option value="Condo">Condo</option><option value="House">House</option><option value="Townhouse">Townhouse</option></select></label>
+          <label class="search-field"><span class="field-icon" aria-hidden="true">$</span><span class="field-label">Monthly budget</span><select id="budget-search"><option value="">Any budget</option><option value="2000">Up to $2,000</option><option value="2500">Up to $2,500</option><option value="3000">Up to $3,000</option><option value="3500">Up to $3,500</option><option value="4000">Up to $4,000</option></select></label>
+          <button class="button button-dark search-submit" type="submit"><span class="search-glass" aria-hidden="true"></span> Find a home</button>
+        </form>
+        <p class="search-hint"><span aria-hidden="true">✳</span> No pressure. You can change your mind as you go.</p>
+      </section>
+
+      <section class="values-strip" aria-label="The Reome difference">
+        <div class="value"><span class="value-symbol">01</span><span><strong>Details, up front</strong><small>Know what to expect before the tour.</small></span></div>
+        <div class="value"><span class="value-symbol">02</span><span><strong>Homes with a point of view</strong><small>Places selected for living, not scrolling.</small></span></div>
+        <div class="value"><span class="value-symbol">03</span><span><strong>Your pace, your process</strong><small>Keep your search clear and in your hands.</small></span></div>
+      </section>
+
+      <section class="homes-section" id="homes">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span class="eyebrow-line"></span> A few good places</p><h2>Homes with <em>room to be.</em></h2></div>
+          <div class="heading-aside"><p>Find a place that feels like more than an address.</p><a href="#homes" id="show-all" class="text-link">Explore all homes <span aria-hidden="true">↗</span></a></div>
+        </div>
+        <div class="results-toolbar">
+          <p id="results-count" aria-live="polite">Showing 6 homes</p>
+          <div class="filter-actions"><button type="button" class="filter-chip" id="beds-filter">Bedrooms <span aria-hidden="true">⌄</span></button><button type="button" class="filter-chip" id="favorites-filter" aria-pressed="false"><span aria-hidden="true">♡</span> Saved homes</button></div>
+        </div>
+        <div class="listing-grid" id="listing-grid"></div>
+        <div class="empty-results" id="empty-results" hidden><span class="empty-mark">⌂</span><h3>No homes in this search just yet.</h3><p>Try a wider budget or a nearby neighborhood. Good places have a way of showing up.</p><button class="button button-dark" id="reset-search" type="button">Clear filters</button></div>
+        <div class="load-more-wrap"><button id="load-more" class="button button-outline" type="button">See all homes <span aria-hidden="true">↓</span></button></div>
+      </section>
+
+      <section class="guide-banner" id="how-it-works">
+        <div class="guide-graphic" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><span class="graphic-home">⌂</span><span class="graphic-star">✳</span><span class="graphic-label">YOUR<br>HOME<br>BRIEF</span></div>
+        <div class="guide-banner-copy"><p class="eyebrow light-eyebrow"><span class="eyebrow-line"></span> Start with what matters</p><h2>Less searching.<br><em>More feeling sure.</em></h2><p>A few thoughtful questions help us understand what “home” means to you. No account, no awkward calls — just a clearer place to start.</p><button class="button button-cream" type="button" data-open-guide>Build your home brief <span aria-hidden="true">↗</span></button></div>
+        <div class="guide-stamp">A GOOD<br>PLACE TO<br>BEGIN <span>✳</span></div>
+      </section>
+
+      <section class="closing-section" id="about">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Moving is a lot. Finding home shouldn't be.</p>
+        <h2>Make space for<br><em>what comes next.</em></h2>
+        <button class="text-link closing-link" type="button" data-open-guide>Let's find your place <span aria-hidden="true">↗</span></button>
+        <div class="closing-detail">REOME RENTALS <span>—</span> A MORE HUMAN HOME SEARCH</div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="brand footer-brand" href="#"><span class="brand-mark">r</span><span>reome</span></a><p>Good homes make room for good things.</p><span>© 2025 Reome Rentals</span></footer>
+
+    <dialog class="guide-dialog" id="guide-dialog" aria-labelledby="guide-title">
+      <div class="guide-shell">
+        <button class="dialog-close" id="close-guide" type="button" aria-label="Close home brief">×</button>
+        <aside class="guide-aside"><a class="brand guide-brand" href="#"><span class="brand-mark">r</span><span>reome</span></a><p class="eyebrow light-eyebrow">Your next chapter</p><h2>A home search<br>that starts with <em>you.</em></h2><p>There are no wrong answers. This is just a way to make the search feel a little more like yours.</p><div class="aside-bottom"><span class="aside-number">01—06</span><span>TAKE IT AT YOUR PACE</span></div></aside>
+        <div class="guide-content">
+          <div class="wizard-top"><div class="progress-meta"><span id="step-caption">QUESTION 01 OF 06</span><span id="progress-percent">17%</span></div><div class="progress-track"><span id="progress-bar"></span></div></div>
+          <div id="wizard-view"></div>
+        </div>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
